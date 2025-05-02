@@ -168,6 +168,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # App header with large image
+# App header with large image and team credits
 def render_header():
     col1, col2 = st.columns([1, 2])
     with col1:
@@ -176,9 +177,18 @@ def render_header():
         st.markdown("""
         <div class="header-text">
             <h1 class="header-title">👩‍💼Employee Churn Prediction</h1>
-            <p class="header-subtitle">
-                Predict churn risks • Improve retention • Strengthen your workforce
-            </p>
+            <div style="margin-top: 20px; background-color: rgba(255,255,255,0.2); padding: 12px; border-radius: 8px;">
+                <p style="margin: 5px 0; font-size: 1rem; font-weight: 500;">Developed by:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px 15px; margin: 8px 0;">
+                    <span>Ahmed Mohamed</span>
+                    <span>• Theodore Naguib</span>
+                    <span>• Malak Torky</span>
+                    <span>• Shrouk Emam</span>
+                    <span>• Salah Eldin Mohamed</span>
+                    <span>• Seif Ahmed</span>
+                </div>
+                <p style="margin: 5px 0; font-size: 1rem;">Supervised by: <span style="font-weight: 500;">Eng. Mahmoud Talaat</span></p>
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
