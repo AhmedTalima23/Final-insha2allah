@@ -291,38 +291,54 @@ with tab1:
         """, unsafe_allow_html=True)
 
 with tab2:
-    # Transparent background for analytics tab
-    st.header("Analytics Insights")
+    # Analytics Insights Tab
+    st.header("Retention Overview")
     st.write("""
-    ## Employee Retention Trends
-    Explore patterns and factors influencing employee retention across your organization.
+    ## Key Retention Metrics
+    Understand your workforce stability at a glance
     """)
     
-    # Placeholder for analytics content
-    col1, col2 = st.columns(2)
+    # Simple metrics cards
+    col1, col2, col3 = st.columns(3)
     with col1:
-        st.subheader("Department-wise Retention")
-        st.bar_chart({
-            'Department': ['Sales', 'Tech', 'Support', 'HR', 'Management'],
-            'Retention Rate': [0.65, 0.82, 0.78, 0.90, 0.85]
-        })
-    
+        st.metric("Overall Retention Rate", "82%", "+2% from last quarter")
     with col2:
-        st.subheader("Satisfaction vs Retention")
-        st.scatter_chart(pd.DataFrame({
-            'Satisfaction': np.random.rand(50) * 100,
-            'Retention': np.random.rand(50) * 100,
-            'Department': np.random.choice(['Sales', 'Tech', 'HR'], 50)
-        }), x='Satisfaction', y='Retention', color='Department')
+        st.metric("Average Satisfaction", "6.8/10", "-0.3 from last quarter")
+    with col3:
+        st.metric("Avg Company Tenure", "3.2 years", "stable")
     
     st.markdown("---")
-    st.subheader("Key Insights")
+    
+    # Simple charts section
+    st.subheader("Top Retention Factors")
+    
+    # Factor importance chart
+    factors = pd.DataFrame({
+        'Factor': ['Satisfaction', 'Workload', 'Salary', 'Career Growth', 'Work Environment'],
+        'Impact': [85, 72, 68, 63, 58]
+    })
+    st.bar_chart(factors.set_index('Factor'))
+    
+    st.markdown("---")
+    
+    # Simple recommendations
+    st.subheader("Quick Recommendations")
     st.write("""
-    - Employees with satisfaction scores below 40% have 85% turnover rate
-    - Technical department shows highest retention after promotions
-    - Optimal project count for retention is 3-5 projects
-    - Monthly hours beyond 220 significantly increase churn risk
+    - **Focus on satisfaction**: Employees with satisfaction below 5/10 are 3x more likely to leave
+    - **Monitor workload**: Those working >200 hours/month show higher turnover
+    - **Review compensation**: Low salary tier employees have 25% higher churn
+    - **Career development**: Employees without promotion in 3+ years are at risk
     """)
+    
+    # Department comparison
+    st.markdown("---")
+    st.subheader("By Department")
+    dept_data = pd.DataFrame({
+        'Department': ['Sales', 'Engineering', 'technical', 'HR', 'Management'],
+        'Retention Rate': [75, 88, 82, 91, 89],
+        'Avg Satisfaction': [6.2, 7.1, 6.8, 7.4, 7.3]
+    })
+    st.dataframe(dept_data.style.highlight_max(axis=0, color='red'))
 
 # Footer
 st.markdown("""
