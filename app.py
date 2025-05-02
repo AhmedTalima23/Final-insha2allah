@@ -130,8 +130,22 @@ st.markdown("""
         padding: 1rem;
         margin-top: 2rem;
         color: var(--text);
-        opacity: 0.8;
         font-size: 0.9rem;
+    }
+    
+    .team-credits {
+        background-color: rgba(74, 111, 165, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    
+    .team-members {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px 15px;
+        margin: 10px 0;
     }
     
     /* Tab content background transparent */
@@ -340,9 +354,26 @@ with tab2:
     })
     st.dataframe(dept_data.style.highlight_max(axis=0, color='red'))
 
-# Footer
+# Footer with team credits
+# Footer with enhanced team credits
+# Footer with enhanced team credits
+# Enhanced Footer with Team Credits
 st.markdown("""
 <div class="footer">
-    <p>Employee Retention Pro • Powered by HR Analytics • v2.1</p>
+    <div class="team-credits">
+        <p style="font-weight: 600; text-align: center; margin-bottom: 10px;">Project Development Team</p>
+        <div class="team-members">
+            <span>• Ahmed Mohamed</span>
+            <span>• Theodore Naguib</span>
+            <span>• Malak Torky</span>
+            <span>• Shrouk Emam</span>
+            <span>• Salah Eldin Mohamed</span>
+            <span>• Seif Ahmed</span>
+        </div>
+        <p style="text-align: center; margin-top: 10px;">
+            Supervised by: <span style="font-weight: 600;">Eng. Mahmoud Talaat</span>
+        </p>
+    </div>
+    <p style="margin-top: 20px;">Employee Retention Pro • Powered by HR Analytics • v2.1</p>
 </div>
 """, unsafe_allow_html=True)
